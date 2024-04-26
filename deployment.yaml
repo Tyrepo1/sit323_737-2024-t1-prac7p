@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: calcapp-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: calcapp
+  template:
+    metadata:
+      labels:
+        app: calcapp
+    spec:
+      containers:
+      - name: calcapp
+        image: tyrepo1/prac7p:latest
+        ports:
+        - containerPort: 3000
